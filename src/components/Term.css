@@ -11,22 +11,44 @@
 
 .card-header {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   justify-content: space-between;
 }
 
 .title {
   flex-grow: 2;
+  display: flex;
+  align-items: center;
+}
+
+.term-title-small {
+  font-size: 60%;
+}
+.term-title-medium {
+  font-size: 80%;
+}
+.term-title-large {
+  font-size: 120%;
 }
 
 .card .card-header h1 {
   display: inline-block;
-  font-size: 300%;
+  font-size: 250%;
 }
 
 .quick-def {
   display: inline-block;
-  padding: 0 20px;
+  padding: 0 25px;
+}
+
+.term-quick-def-small {
+  font-size: 80%;
+}
+.term-quick-def-medium {
+  font-size: 100%;
+}
+.term-quick-def-large {
+  font-size: 120%;
 }
 
 .card .quick-def h3 {
@@ -36,6 +58,7 @@
 }
 
 .del-term-btn {
+  align-self: flex-start;
   background-color: rgb(255, 255, 255);
   border: none;
   cursor: pointer;
@@ -43,16 +66,20 @@
   padding: 15px 10px;
 }
 
-.open-card {
-  display: block;
-}
-
-.closed-card {
-  display: none;
-}
-
 .card-container .term-container {
   padding-bottom: 20px;
+}
+
+.term-def-small {
+  font-size: 80%;
+}
+
+.term-def-medium {
+  font-size: 100%;
+}
+
+.term-def-large {
+  font-size: 120%;
 }
 
 .card h2 {

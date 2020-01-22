@@ -1,0 +1,73 @@
+/* Settings Styling */
+.settings-container {
+  margin-top: 20px;
+  width: 80%;
+  max-width: 750px;
+  margin-bottom: 50px;
+}
+
+.show-settings-btn {
+  border: none;
+  cursor: pointer;
+  background-color: #98dfaf;
+  color: rgb(97, 97, 97);
+  padding: 10px 10px;
+  font-size: 150%;
+  border-radius: 5%;
+}
+
+.settings-content {
+  background-color: #deefb7;
+  color: rgb(97, 97, 97);
+  padding: 10px 10px;
+  font-size: 1.5rem;
+  width: 100%;
+}
+
+.large-settings-box {
+  margin-bottom: 20px;
+}
+
+.large-settings-title {
+  font-size: 1.75rem;
+}
+
+.small-settings-title {
+  font-size: 1.5rem;
+}
+
+.sub-settings-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.sub-setting-item {
+  margin-left: 50px;
+  margin-top: 5px;
+  background-color: #98dfaf;
+}
+
+.small-settings-box {
+  padding: 10px 10px;
+  border-radius: 5%;
+}
+
+.small-settings-box ul {
+  list-style: none;
+  font-size: 1.3rem;
+}
+
+.small-settings-box ul li {
+  margin-top: 5px;
+}
+
+.settings-input-box {
+  display: flex;
+  align-items: center;
+  font-size: 1.3rem;
+}
+
+.settings-checkbox {
+  transform: scale(1.1);
+  margin-right: 10px;
+}
