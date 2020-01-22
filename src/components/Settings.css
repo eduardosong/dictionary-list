@@ -4,24 +4,33 @@
   width: 80%;
   max-width: 750px;
   margin-bottom: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .show-settings-btn {
   border: none;
   cursor: pointer;
-  background-color: #98dfaf;
-  color: rgb(97, 97, 97);
+  /* background-color: #98dfaf; */
+  background-color: #a7bed3;
+  /* color: rgb(97, 97, 97); */
+  /* color: rgb(68, 68, 68); */
+  color: #5a564d;
   padding: 10px 10px;
   font-size: 150%;
   border-radius: 5%;
+  box-shadow: 2px 2px rgb(36, 67, 80);
 }
 
 .settings-content {
-  background-color: #deefb7;
+  /* background-color: #deefb7; */
+  background-color: #c6e2e9;
   color: rgb(97, 97, 97);
   padding: 10px 10px;
   font-size: 1.5rem;
   width: 100%;
+  border-radius: 0.5%;
 }
 
 .large-settings-box {
@@ -44,7 +53,8 @@
 .sub-setting-item {
   margin-left: 50px;
   margin-top: 5px;
-  background-color: #98dfaf;
+  /* background-color: #98dfaf; */
+  background-color: #a7bed3;
 }
 
 .small-settings-box {

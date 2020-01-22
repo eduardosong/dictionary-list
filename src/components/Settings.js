@@ -47,7 +47,7 @@ class Settings extends React.Component {
           >
             <form>
               <div className="large-settings-box">
-                <span className="large-settings-title">Font</span>
+                <span className="large-settings-title">Font Size</span>
                 <div className="sub-settings-container">
                   <div className="small-settings-box sub-setting-item">
                     <span className="small-settings-title">Title</span>
@@ -216,7 +216,7 @@ class Settings extends React.Component {
               </div>
 
               <div className="small-settings-box">
-                <span className="small-settings-title">Definitions</span>
+                <span className="small-settings-title">Quick Definitions</span>
                 <div className="settings-input-box">
                   <input
                     type="checkbox"

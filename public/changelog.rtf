@@ -1,0 +1,34 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2511
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;\red0\green0\blue0;}
+{\*\expandedcolortbl;;\csgray\c0;}
+\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 changelog\
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf2 v0.12\
+Added Changes\
+- Change in color scheme to something more aesthetically pleasing. Somewhat peaceful with the blue, energy from the yellow accents\
+   -#FFFFFF white\
+   -#F5CB5C yellow/mustard\
+   -#5095B1 Cyan azure (light blue)\
+   -#A7BED3 Pastel blue\
+   -#C6E2E9 Columbia blue\cf0 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf2 V0.11\
+- Change general font size to be smaller\
+- Adjusted position of delete button through flex start\
+- Adding options to hide definition on term retrieval, and change font size for title and definition from small, medium, and large\
+- Refactored code\
+   - The function that evaluates the API response for a term, breaking down that function into four separate ones that make the code more readable\
+   - Moved the mapping function for the array from the render method. Instead made it so that an array of the terms is created every time there\'92s a change to the term list within state, and that array is directly referenced within the render method\
+- Strange behavior when the form can gather data from input even when pressing enter. Unresolved\
+- Disabled input for textbook while submitting a term to prevent user from adding text, which affects the title of the word when outputted. Multiple workarounds possible, such as setting the term immediately in the function\'92s beginning, so that any additional inputs will not be added to the text. Disabled input by state through disabled attribute true/false in react. \
+- Added settings menu\
+    - Option to hide the quick definition\
+    - Size settings for title, quick def, and definition\
+- added title and favicon v1}

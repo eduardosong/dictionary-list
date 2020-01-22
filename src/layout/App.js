@@ -57,13 +57,16 @@ class App extends React.Component {
     this.setState({ htmlTermArr });
   };
 
+  onClickAltTerm = e => {
+    this.setState({ term: e.target.value });
+  };
+
   onTermSubmit = async event => {
     event.preventDefault();
 
     this.setState({ isDisabled: true });
 
     const term = this.state.term;
-
     // removed response variable assigned to await; might cause errors leaving this to remind what change I made here
     await this.getTerm(term)
       .then(r => this.checkTermResponse(r.data))
@@ -165,7 +168,11 @@ class App extends React.Component {
           <span key={index + new Date().getTime()}>
             {" "}
             "
-            <button className="alt-term" onClick={this.onClickAltTerm}>
+            <button
+              className="alt-term"
+              value={altTerm}
+              onClick={this.onClickAltTerm}
+            >
               {altTerm}
             </button>
             ",
@@ -175,7 +182,11 @@ class App extends React.Component {
         return (
           <span key={index + new Date().getTime()}>
             {" or "}"
-            <button className="alt-term" onClick={this.onClickAltTerm}>
+            <button
+              className="alt-term"
+              value={altTerm}
+              onClick={this.onClickAltTerm}
+            >
               {altTerm}
             </button>
             "?

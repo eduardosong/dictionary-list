@@ -10,7 +10,8 @@
 .wrapper {
   min-height: 100vh;
   height: 100%;
-  background-color: #fff4dd;
+  /* background-color: #fff4dd; */
+  background-color: #5095b1;
   /* fff0d0 */
 }
 
@@ -35,8 +36,11 @@
 }
 
 .site-title h1 {
+  color: #ffffff;
   font-size: 300%;
   font-weight: 300;
+  /* text-shadow: 2px 2px #6d6d6d; */
+  text-shadow: 2px 2px rgb(36, 67, 80);
 }
 
 /* Section: Search Box */
@@ -61,6 +65,7 @@
   display: flex;
   width: 100%;
   justify-content: center;
+  box-shadow: 3px 3px rgb(36, 67, 80);
 }
 
 .term-input {
@@ -79,7 +84,8 @@
 
 .search-btn {
   border: none;
-  background-color: rgb(253, 171, 65);
+  /* background-color: rgb(253, 171, 65); */
+  background-color: #f5cb5c;
   color: rgb(44, 44, 44);
   padding: 0 10px;
   font-size: 140%;
@@ -92,10 +98,15 @@
   padding: 10px;
   text-align: center;
   font-size: 140%;
+  box-shadow: 2px 2px rgb(36, 67, 80);
 }
 
 .alt-term {
   cursor: pointer;
+  outline: none;
+  font-size: 120%;
+  border: none;
+  background-color: transparent;
   color: rgb(115, 178, 221);
 }
 
