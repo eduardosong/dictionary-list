@@ -1,6 +1,7 @@
 import React from "react";
 import Term from "../components/Term";
 import Settings from "../components/Settings";
+import Footer from "../components/Footer";
 import merriam, { baseParams } from "../services/merriam";
 import {
   titleFontSize,
@@ -162,7 +163,7 @@ class App extends React.Component {
   };
 
   mapAltTerm = altTerm => {
-    return altTerm.map((altTerm, index) => {
+    return altTerm.map((singleTerm, index) => {
       if (index !== altTerm.length - 1) {
         return (
           <span key={index + new Date().getTime()}>
@@ -170,10 +171,10 @@ class App extends React.Component {
             "
             <button
               className="alt-term"
-              value={altTerm}
+              value={singleTerm}
               onClick={this.onClickAltTerm}
             >
-              {altTerm}
+              {singleTerm}
             </button>
             ",
           </span>
@@ -184,10 +185,10 @@ class App extends React.Component {
             {" or "}"
             <button
               className="alt-term"
-              value={altTerm}
+              value={singleTerm}
               onClick={this.onClickAltTerm}
             >
-              {altTerm}
+              {singleTerm}
             </button>
             "?
           </span>
@@ -255,55 +256,64 @@ class App extends React.Component {
     return (
       <React.Fragment>
         <div className="wrapper">
-          <section className="title-section">
-            <div className="site-title row">
-              <h1>Terms List</h1>
-            </div>
-          </section>
-          <section className="search-box-container">
-            <form className="search-form" onSubmit={this.onTermSubmit}>
-              <div className="form-elements">
-                <input
-                  ref={input => input && input.focus()}
-                  type="text"
-                  name="termInput"
-                  className="term-input"
-                  placeholder="Enter your search term"
-                  value={this.state.term}
-                  onChange={this.inputChange}
-                  disabled={this.state.isDisabled}
-                />
-                <button type="submit" className="search-btn">
-                  Search
-                </button>
+          <div className="page-content">
+            <section className="title-section animated fadeIn">
+              <div className="site-title row">
+                <h1>Mitsis</h1>
+                <h4>
+                  A word tracker to mitigate the sisyphean task of understanding
+                  and memorizing words in English
+                </h4>
               </div>
-              <div
-                className={
-                  this.state.termErr.isErr
-                    ? "err-msg visible-element animated fadeIn"
-                    : "err-msg hidden-element animated fadeIn"
-                }
-              >
-                {this.state.termErr.errMsg}
+            </section>
+            <section className="search-box-container animated fadeInLeft">
+              <form className="search-form" onSubmit={this.onTermSubmit}>
+                <div className="form-elements">
+                  <input
+                    ref={input => input && input.focus()}
+                    type="text"
+                    name="termInput"
+                    className="term-input"
+                    placeholder="Enter your search term"
+                    value={this.state.term}
+                    onChange={this.inputChange}
+                    disabled={this.state.isDisabled}
+                  />
+                  <button type="submit" className="search-btn">
+                    Search
+                  </button>
+                </div>
+                <div
+                  className={
+                    this.state.termErr.isErr
+                      ? "err-msg visible-element animated fadeIn"
+                      : "err-msg hidden-element animated fadeIn"
+                  }
+                >
+                  {this.state.termErr.errMsg}
+                </div>
+              </form>
+              <Settings
+                titleFontSize={this.state.settings.font.title}
+                defFontSize={this.state.settings.font.def}
+                quickDefFontSize={this.state.settings.font.quickDef}
+                hideCompactDef={this.state.settings.hideCompactDef}
+                onChangeCompactDef={this.onChangeCompactDef}
+                onChangeTitleFontSize={this.onChangeTitleFontSize}
+                onChangeDefSize={this.onChangeDefSize}
+                onChangeQuickDefSize={this.onChangeQuickDefSize}
+              />
+            </section>
+            <section className="section-searched-list">
+              <div className="row">
+                <div className="searched-list-container">
+                  {this.state.htmlTermArr}
+                </div>
               </div>
-            </form>
-            <Settings
-              titleFontSize={this.state.settings.font.title}
-              defFontSize={this.state.settings.font.def}
-              quickDefFontSize={this.state.settings.font.quickDef}
-              hideCompactDef={this.state.settings.hideCompactDef}
-              onChangeCompactDef={this.onChangeCompactDef}
-              onChangeTitleFontSize={this.onChangeTitleFontSize}
-              onChangeDefSize={this.onChangeDefSize}
-              onChangeQuickDefSize={this.onChangeQuickDefSize}
-            />
-          </section>
-          <section className="section-searched-list">
-            <div className="row">
-              <div className="searched-list-container">
-                {this.state.htmlTermArr}
-              </div>
-            </div>
+            </section>
+          </div>
+          <section className="section-footer">
+            <Footer />
           </section>
         </div>
       </React.Fragment>

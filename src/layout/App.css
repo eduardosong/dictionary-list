@@ -8,11 +8,13 @@
 }
 
 .wrapper {
+  position: relative;
   min-height: 100vh;
   height: 100%;
-  /* background-color: #fff4dd; */
-  background-color: #5095b1;
+  background-color: #41a6ce;
+  /* 41a6ce */
   /* fff0d0 */
+  padding-bottom: 200px;
 }
 
 .row {
@@ -42,6 +44,12 @@
   /* text-shadow: 2px 2px #6d6d6d; */
   text-shadow: 2px 2px rgb(36, 67, 80);
 }
+.site-title h4 {
+  margin-top: 10px;
+  color: #e0e0e0;
+  font-size: 120%;
+  /* text-shadow: 2px 2px #6d6d6d; */
+}
 
 /* Section: Search Box */
 
@@ -65,7 +73,7 @@
   display: flex;
   width: 100%;
   justify-content: center;
-  box-shadow: 3px 3px rgb(36, 67, 80);
+  box-shadow: 2.5px 2.5px rgb(36, 67, 80);
 }
 
 .term-input {
@@ -98,7 +106,7 @@
   padding: 10px;
   text-align: center;
   font-size: 140%;
-  box-shadow: 2px 2px rgb(36, 67, 80);
+  box-shadow: 2.5px 2.5px rgb(36, 67, 80);
 }
 
 .alt-term {
@@ -115,9 +123,16 @@
 }
 
 /* Section: Term and Definition Display */
-.section-searched-list {
-}
+/* .section-searched-list {
+} */
 
 .searched-list-container {
   padding-bottom: 30px;
+}
+
+/* Section: Footer */
+.section-footer {
+  position: absolute;
+  width: 100%;
+  bottom: 0;
 }
