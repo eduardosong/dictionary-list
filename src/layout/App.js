@@ -37,7 +37,62 @@ class App extends React.Component {
     }
   };
 
+  componentDidMount = () => {
+    this.getTermFromStorage();
+    this.getSettingFromStorage();
+  };
+
+  getSettingFromStorage = () => {
+    const settings = JSON.parse(localStorage.getItem("settings"));
+    if (settings.titleFontSize !== undefined) {
+      this.setState({
+        settings: {
+          ...this.state.settings,
+          font: { ...this.state.settings.font, title: settings.titleFontSize }
+        }
+      });
+    }
+    if (settings.defFontSize !== undefined) {
+      this.setState({
+        settings: {
+          ...this.state.settings,
+          font: { ...this.state.settings.font, def: settings.titleFontSize }
+        }
+      });
+    }
+    if (settings.quickDefFontSize !== undefined) {
+      this.setState({
+        settings: {
+          ...this.state.settings,
+          font: {
+            ...this.state.settings.font,
+            quickDef: settings.titleFontSize
+          }
+        }
+      });
+    }
+    if (settings.hideCompactDef !== undefined) {
+      this.setState({
+        settings: {
+          ...this.state.settings,
+          hideCompactDef: settings.hideCompactDef
+        }
+      });
+    }
+  };
+
+  getTermFromStorage = () => {
+    const termArr = JSON.parse(localStorage.getItem("termArr"));
+    if (termArr !== null) {
+      this.setState({ termArr });
+    }
+  };
+
   mapTermArr = () => {
+    let oldStoredArr = JSON.parse(localStorage.getItem("htmlTermArr"));
+    if (!oldStoredArr) {
+      oldStoredArr = [];
+    }
     const htmlTermArr = this.state.termArr.map((word, index) => {
       return (
         <Term
@@ -68,14 +123,33 @@ class App extends React.Component {
     this.setState({ isDisabled: true });
 
     const term = this.state.term;
-    // removed response variable assigned to await; might cause errors leaving this to remind what change I made here
+
+    if (term === "") {
+      this.setState({ isDisabled: false });
+      return;
+    }
+
     await this.getTerm(term)
       .then(r => this.checkTermResponse(r.data))
       .catch(error => console.log(error));
   };
 
+  changeLocalSettings = (settingName, settingValue) => {
+    let oldSettings = JSON.parse(localStorage.getItem("settings"));
+
+    if (oldSettings === null) {
+      oldSettings = {};
+    }
+
+    oldSettings[`${settingName}`] = settingValue;
+
+    localStorage.setItem("settings", JSON.stringify(oldSettings));
+  };
+
   onChangeCompactDef = () => {
     const newCurrDisp = !this.state.settings.hideCompactDef;
+
+    this.changeLocalSettings("hideCompactDef", newCurrDisp);
 
     this.setState(
       {
@@ -86,6 +160,8 @@ class App extends React.Component {
   };
 
   onChangeTitleFontSize = fontSize => {
+    this.changeLocalSettings("titleFontSize", fontSize);
+
     this.setState(
       {
         settings: {
@@ -98,6 +174,8 @@ class App extends React.Component {
   };
 
   onChangeDefSize = fontSize => {
+    this.changeLocalSettings("defFontSize", fontSize);
+
     this.setState(
       {
         settings: {
@@ -110,6 +188,8 @@ class App extends React.Component {
   };
 
   onChangeQuickDefSize = fontSize => {
+    this.changeLocalSettings("quickDefFontSize", fontSize);
+
     this.setState(
       {
         settings: {
@@ -202,6 +282,10 @@ class App extends React.Component {
     const term = this.state.term;
     const newTerm = [];
     const termArr = this.state.termArr.slice();
+    let oldStoredArr = JSON.parse(localStorage.getItem("termArr"));
+    if (!oldStoredArr) {
+      oldStoredArr = [];
+    }
 
     for (let i = 0; i < maxNumTerm; i++) {
       if (respTermArr[i] === undefined) {
@@ -215,6 +299,11 @@ class App extends React.Component {
       id: new Date().getTime(),
       def: newTerm
     });
+    oldStoredArr.unshift({
+      term,
+      id: new Date().getTime(),
+      def: newTerm
+    });
 
     const termErr = {
       ...this.state.termErr,
@@ -222,6 +311,8 @@ class App extends React.Component {
       errMsg: null,
       altTerm: []
     };
+
+    localStorage.setItem("termArr", JSON.stringify(termArr));
 
     this.setState({ isDisabled: false, termArr, term: "", termErr });
   };
@@ -248,8 +339,16 @@ class App extends React.Component {
     const termArr = this.state.termArr.slice();
 
     termArr.splice(index, 1);
+    localStorage.setItem("termArr", JSON.stringify(termArr));
 
     this.setState({ termArr });
+  };
+
+  delStoredTerm = () => {
+    const termArr = null;
+
+    localStorage.setItem("termArr", termArr);
+    this.setState({ termArr: [], htmlTermArr: [] });
   };
 
   render() {
@@ -261,8 +360,8 @@ class App extends React.Component {
               <div className="site-title row">
                 <h1>Mitsis</h1>
                 <h4>
-                  A word tracker to mitigate the sisyphean task of understanding
-                  and memorizing words in English
+                  A companion for when you go down the rabbit hole of searching
+                  the definitions of words.
                 </h4>
               </div>
             </section>
@@ -270,7 +369,6 @@ class App extends React.Component {
               <form className="search-form" onSubmit={this.onTermSubmit}>
                 <div className="form-elements">
                   <input
-                    ref={input => input && input.focus()}
                     type="text"
                     name="termInput"
                     className="term-input"
@@ -293,18 +391,27 @@ class App extends React.Component {
                   {this.state.termErr.errMsg}
                 </div>
               </form>
-              <Settings
-                titleFontSize={this.state.settings.font.title}
-                defFontSize={this.state.settings.font.def}
-                quickDefFontSize={this.state.settings.font.quickDef}
-                hideCompactDef={this.state.settings.hideCompactDef}
-                onChangeCompactDef={this.onChangeCompactDef}
-                onChangeTitleFontSize={this.onChangeTitleFontSize}
-                onChangeDefSize={this.onChangeDefSize}
-                onChangeQuickDefSize={this.onChangeQuickDefSize}
-              />
+              <div className="search-btn-group">
+                <Settings
+                  titleFontSize={this.state.settings.font.title}
+                  defFontSize={this.state.settings.font.def}
+                  quickDefFontSize={this.state.settings.font.quickDef}
+                  hideCompactDef={this.state.settings.hideCompactDef}
+                  onChangeCompactDef={this.onChangeCompactDef}
+                  onChangeTitleFontSize={this.onChangeTitleFontSize}
+                  onChangeDefSize={this.onChangeDefSize}
+                  onChangeQuickDefSize={this.onChangeQuickDefSize}
+                />
+
+                <button
+                  className="show-settings-btn "
+                  onClick={this.delStoredTerm}
+                >
+                  Clear Terms
+                </button>
+              </div>
             </section>
-            <section className="section-searched-list">
+            <section className="section-searched-list animated fadeIn">
               <div className="row">
                 <div className="searched-list-container">
                   {this.state.htmlTermArr}

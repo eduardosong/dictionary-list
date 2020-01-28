@@ -1,5 +1,5 @@
 /* Settings Styling */
-.settings-container {
+/* .settings-container {
   margin-top: 20px;
   width: 80%;
   max-width: 750px;
@@ -7,9 +7,10 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-}
+} */
 
 .show-settings-btn {
+  align-self: flex-start;
   border: none;
   cursor: pointer;
   /* background-color: #98dfaf; */
@@ -24,6 +25,7 @@
 }
 
 .settings-content {
+  margin-top: 1px;
   /* background-color: #deefb7; */
   background-color: #bbd5ed;
   color: rgb(97, 97, 97);
@@ -31,6 +33,7 @@
   font-size: 1.5rem;
   width: 100%;
   border-radius: 0.5%;
+  box-shadow: 2px 2px rgb(36, 67, 80);
 }
 
 .large-settings-box {
@@ -55,6 +58,7 @@
   margin-top: 5px;
   /* background-color: #98dfaf; */
   background-color: rgb(233, 227, 212);
+  box-shadow: 2px 2px rgb(36, 67, 80);
 }
 
 .small-settings-box {
@@ -80,4 +84,43 @@
 .settings-checkbox {
   transform: scale(1.1);
   margin-right: 10px;
+}
+
+.card-object {
+  background-color: rgb(233, 227, 212);
+  border-radius: 3px;
+  margin: 5px 5px;
+  padding: 7px 5px;
+}
+
+.card-object-title {
+  font-size: 120%;
+}
+
+.prop-group {
+  display: flex;
+  align-items: center;
+}
+
+.card-property {
+  background-color: rgb(223, 195, 126);
+  border-radius: 3px;
+  padding: 7px 5px;
+  margin: 10px;
+}
+
+.card-property-title {
+  font-size: 100%;
+}
+
+.sub-prop-group {
+  display: flex;
+  align-items: center;
+}
+
+.card-sub-property {
+  background-color: rgb(150, 182, 218);
+  border-radius: 3px;
+  padding: 7px 5px;
+  margin: 15px;
 }

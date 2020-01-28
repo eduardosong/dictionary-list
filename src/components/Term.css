@@ -31,6 +31,26 @@
   font-size: 120%;
 }
 
+.card-drop-btn {
+  border: none;
+  padding: 0 5px;
+  margin-left: 15px;
+  font-size: 215%;
+  cursor: pointer;
+  color: #003153;
+  transition: 0.5s all;
+}
+
+.card-arrow-down {
+  transform: rotate(0deg);
+  transition: transform 0.2s linear;
+}
+
+.card-arrow-down.open-card {
+  transform: rotate(90deg);
+  transition: transform 0.2s linear;
+}
+
 .card .card-header h1 {
   display: inline-block;
   font-size: 250%;

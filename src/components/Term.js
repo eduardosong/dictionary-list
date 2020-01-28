@@ -68,7 +68,6 @@ class Term extends React.Component {
 
   setQuickDefFontSize = () => {
     const quickDefFontSize = this.props.quickDefFontSize;
-    console.log(quickDefFontSize);
     switch (quickDefFontSize) {
       case "small":
         this.setState({ quickDefFontSizeClass: "term-quick-def-small" });
@@ -98,10 +97,18 @@ class Term extends React.Component {
       <React.Fragment>
         <div className="card animated fadeIn">
           <div className="card-header">
-            <div className="title" onClick={this.toggleShow}>
+            <div className="title">
               <div className={this.state.titleFontSizeClass}>
                 <h1>{this.props.term} </h1>
               </div>
+              <button
+                className={`card-drop-btn card-arrow-down ${
+                  this.state.showCard ? "open-card" : null
+                }`}
+                onClick={this.toggleShow}
+              >
+                <i className="ion-android-arrow-dropright"></i>
+              </button>
               <div className={`quick-def ${this.state.quickDefFontSizeClass}`}>
                 <h3>
                   {this.props.hideCompactDef ? null : (
@@ -124,7 +131,6 @@ class Term extends React.Component {
                 ? `card-container animated fadeIn visible-element ${this.state.defFontSizeClass}`
                 : "card-container animated fadeIn hidden-element"
             }
-            onClick={this.toggleShow}
           >
             {this.props.defList.map((defCont, index) => {
               return (

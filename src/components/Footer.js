@@ -6,6 +6,8 @@ const Footer = props => {
       <footer className="site-footer">
         <div className="footer-info">
           <div className="footer-media">
+            <span className="footer-info-title">Social Media:</span>
+
             <ul>
               <li>
                 <a
@@ -30,7 +32,7 @@ const Footer = props => {
             </ul>
           </div>
           <div className="footer-credits">
-            <span>Powered by</span>
+            <span className="footer-info-title">Running on</span>
             <a
               href="https://dictionaryapi.com/"
               target="_blank"

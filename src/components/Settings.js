@@ -45,6 +45,31 @@ class Settings extends React.Component {
               this.state.dispSettings ? "visible-element" : "hidden-element"
             }`}
           >
+            {/* <div className="card-object">
+              <span className="object-title">Card</span>
+              <div className="prop-group">
+                <div className="card-property">
+                  <span className="card-property-title">Quick Definition</span>
+                  <div className="sub-prop-group">
+                    <div className="card-sub-property">
+                      <span className="card-sub-property-title">Display</span>
+                    </div>
+                    <div className="card-sub-property">
+                      <span className="card-sub-property-title">Font Size</span>
+                      <input
+                        type="range"
+                        min="1"
+                        max="100"
+                        value="50"
+                        class="slider"
+                        id="myRange"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div> */}
+
             <form>
               <div className="large-settings-box">
                 <span className="large-settings-title">Font Size</span>
@@ -218,15 +243,17 @@ class Settings extends React.Component {
               <div className="small-settings-box">
                 <span className="small-settings-title">Quick Definitions</span>
                 <div className="settings-input-box">
-                  <input
-                    type="checkbox"
-                    name="hideDef"
-                    id="hideDef"
-                    className="settings-checkbox"
-                    checked={this.props.hideCompactDef ? true : false}
-                    onChange={this.toggleCompactDef}
-                  />{" "}
-                  <label htmlFor="hideDef">Hide</label>
+                  <div className="sub-setting-item">
+                    <input
+                      type="checkbox"
+                      name="hideDef"
+                      id="hideDef"
+                      className="settings-checkbox"
+                      checked={this.props.hideCompactDef ? true : false}
+                      onChange={this.toggleCompactDef}
+                    />
+                    <label htmlFor="hideDef">Hide</label>
+                  </div>
                 </div>
               </div>
             </form>
