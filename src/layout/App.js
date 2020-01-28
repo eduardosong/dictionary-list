@@ -44,38 +44,29 @@ class App extends React.Component {
 
   getSettingFromStorage = () => {
     const settings = JSON.parse(localStorage.getItem("settings"));
-    if (settings.titleFontSize !== undefined) {
-      this.setState({
-        settings: {
-          ...this.state.settings,
-          font: { ...this.state.settings.font, title: settings.titleFontSize }
-        }
-      });
-    }
-    if (settings.defFontSize !== undefined) {
-      this.setState({
-        settings: {
-          ...this.state.settings,
-          font: { ...this.state.settings.font, def: settings.titleFontSize }
-        }
-      });
-    }
-    if (settings.quickDefFontSize !== undefined) {
+
+    if (settings !== null) {
       this.setState({
         settings: {
           ...this.state.settings,
           font: {
-            ...this.state.settings.font,
-            quickDef: settings.titleFontSize
-          }
-        }
-      });
-    }
-    if (settings.hideCompactDef !== undefined) {
-      this.setState({
-        settings: {
-          ...this.state.settings,
-          hideCompactDef: settings.hideCompactDef
+            def:
+              settings.defFontSize !== undefined
+                ? settings.defFontSize
+                : "medium",
+            title:
+              settings.titleFontSize !== undefined
+                ? settings.titleFontSize
+                : "medium",
+            quickDef:
+              settings.quickDefFontSize !== undefined
+                ? settings.quickDefFontSize
+                : "medium"
+          },
+          hideCompactDef:
+            settings.hideCompactDef !== undefined
+              ? settings.hideCompactDef
+              : false
         }
       });
     }
