@@ -8,10 +8,8 @@
   align-self: flex-start;
   border: none;
   cursor: pointer;
-  /* background-color: #98dfaf; */
   background-color: #b5e2fa;
-  /* color: rgb(97, 97, 97); */
-  /* color: rgb(68, 68, 68); */
+
   color: #5a564d;
   padding: 10px 10px;
   font-size: 150%;
@@ -20,7 +18,6 @@
 
 .settings-content {
   margin-top: 1px;
-  /* background-color: #deefb7; */
   background-color: #bbd5ed;
   color: rgb(97, 97, 97);
   padding: 10px 10px;
@@ -49,7 +46,6 @@
 .sub-setting-item {
   margin-left: 50px;
   margin-top: 5px;
-  /* background-color: #98dfaf; */
   background-color: rgb(233, 227, 212);
 }
 

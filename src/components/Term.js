@@ -7,7 +7,8 @@ class Term extends React.Component {
     showCard: false,
     titleFontSizeClass: "",
     defFontSizeClass: "",
-    quickDefFontSizeClass: ""
+    quickDefFontSizeClass: "",
+    cardSizeClass: ""
   };
 
   componentDidMount() {
@@ -18,6 +19,7 @@ class Term extends React.Component {
     this.setTitleFontSize();
     this.setDefFontSize();
     this.setQuickDefFontSize();
+    this.setCardSize();
   }
 
   componentDidUpdate(prevProps, prevState) {
@@ -29,6 +31,9 @@ class Term extends React.Component {
     }
     if (prevProps.quickDefFontSize !== this.props.quickDefFontSize) {
       this.setQuickDefFontSize();
+    }
+    if (prevProps.cardSize !== this.props.cardSize) {
+      this.setCardSize();
     }
   }
 
@@ -83,6 +88,26 @@ class Term extends React.Component {
     }
   };
 
+  setCardSize = () => {
+    const cardSize = this.props.cardSize;
+    switch (cardSize) {
+      case "small":
+        this.setState({ cardSizeClass: "card-size-small" });
+        break;
+      case "medium":
+        this.setState({ cardSizeClass: "card-size-medium" });
+        break;
+      case "large":
+        this.setState({ cardSizeClass: "card-size-large" });
+        break;
+      case "unlimited":
+        this.setState({ cardSizeClass: "card-size-unlimited" });
+        break;
+      default:
+        break;
+    }
+  };
+
   removeTerm = () => {
     this.props.delTerm(this.props.index);
   };
@@ -95,7 +120,7 @@ class Term extends React.Component {
   render() {
     return (
       <React.Fragment>
-        <div className="card animated fadeIn">
+        <div className={`card animated fadeIn ${this.state.cardSizeClass}`}>
           <div className="card-header">
             <button
               className={`card-drop-btn card-arrow-down ${
@@ -110,8 +135,7 @@ class Term extends React.Component {
                 display: "flex",
                 alignItems: "center",
                 whiteSpace: "nowrap",
-                overflow: "hidden",
-                textOverflow: "ellipsis"
+                overflow: "hidden"
               }}
             >
               <h1 className={`term-title ${this.state.titleFontSizeClass}`}>

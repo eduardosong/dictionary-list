@@ -37,18 +37,20 @@
   text-align: center;
   padding-top: 50px;
   max-width: 750px;
+  font-family: Montserrat, sans-serif;
 }
 
 .site-title h1 {
   color: #ffffff;
-  font-size: 300%;
+  font-size: 400%;
   font-weight: 300;
+  font-family: Montserrat, sans-serif;
 }
 .site-title h4 {
   margin-top: 10px;
   color: #e0e0e0;
   font-size: 120%;
-  font-style: italic;
+  font-family: Montserrat, sans-serif;
 }
 
 /* Section: Search Box */

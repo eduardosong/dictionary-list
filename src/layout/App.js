@@ -6,7 +6,8 @@ import merriam, { baseParams } from "../services/merriam";
 import {
   titleFontSize,
   defFontSize,
-  quickDefFontSize
+  quickDefFontSize,
+  cardSize
 } from "../services/settings";
 import "./App.css";
 
@@ -28,6 +29,9 @@ class App extends React.Component {
         title: titleFontSize[1],
         def: defFontSize[1],
         quickDef: quickDefFontSize[1]
+      },
+      card: {
+        size: cardSize[1]
       }
     }
   };
@@ -63,15 +67,21 @@ class App extends React.Component {
             def:
               settings.defFontSize !== undefined
                 ? settings.defFontSize
-                : "medium",
+                : this.state.settings.font.def,
             title:
               settings.titleFontSize !== undefined
                 ? settings.titleFontSize
-                : "medium",
+                : this.state.settings.font.title,
             quickDef:
               settings.quickDefFontSize !== undefined
                 ? settings.quickDefFontSize
-                : "medium"
+                : this.state.settings.font.quickDef
+          },
+          card: {
+            size:
+              settings.cardSize !== undefined
+                ? settings.cardSize
+                : this.state.settings.card.size
           },
           hideCompactDef:
             settings.hideCompactDef !== undefined
@@ -90,10 +100,10 @@ class App extends React.Component {
   };
 
   mapTermArr = () => {
-    let oldStoredArr = JSON.parse(localStorage.getItem("htmlTermArr"));
-    if (!oldStoredArr) {
-      oldStoredArr = [];
-    }
+    // let oldStoredArr = JSON.parse(localStorage.getItem("htmlTermArr"));
+    // if (!oldStoredArr) {
+    //   oldStoredArr = [];
+    // }
     const htmlTermArr = this.state.termArr.map((word, index) => {
       return (
         <Term
@@ -107,6 +117,7 @@ class App extends React.Component {
           titleFontSize={this.state.settings.font.title}
           defFontSize={this.state.settings.font.def}
           quickDefFontSize={this.state.settings.font.quickDef}
+          cardSize={this.state.settings.card.size}
         />
       );
     });
@@ -168,6 +179,20 @@ class App extends React.Component {
         settings: {
           ...this.state.settings,
           font: { ...this.state.settings.font, title: fontSize }
+        }
+      },
+      this.mapTermArr
+    );
+  };
+
+  onChangeCardSize = cardSize => {
+    this.changeLocalSettings("cardSize", cardSize);
+
+    this.setState(
+      {
+        settings: {
+          ...this.state.settings,
+          card: { ...this.state.settings.card, size: cardSize }
         }
       },
       this.mapTermArr
@@ -404,12 +429,14 @@ class App extends React.Component {
                 dispSettings={this.state.settings.dispSettings}
                 titleFontSize={this.state.settings.font.title}
                 defFontSize={this.state.settings.font.def}
+                cardSize={this.state.settings.card.size}
                 quickDefFontSize={this.state.settings.font.quickDef}
                 hideCompactDef={this.state.settings.hideCompactDef}
                 onChangeCompactDef={this.onChangeCompactDef}
                 onChangeTitleFontSize={this.onChangeTitleFontSize}
                 onChangeDefSize={this.onChangeDefSize}
                 onChangeQuickDefSize={this.onChangeQuickDefSize}
+                onChangeCardSize={this.onChangeCardSize}
               />
             </section>
             <section className="section-searched-list animated fadeIn">

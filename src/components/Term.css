@@ -3,9 +3,24 @@
 .card {
   background-color: rgb(253, 253, 253);
   font-weight: 300;
-  margin-bottom: 30px;
   padding: 10px 10px;
+  margin: 0 auto;
+  margin-bottom: 30px;
+
   /* border: 1px solid rgb(217, 241, 255); */
+}
+
+.card-size-small {
+  max-width: 500px;
+}
+.card-size-medium {
+  max-width: 750px;
+}
+.card-size-large {
+  max-width: 1180px;
+}
+.card-size-large {
+  width: 100%;
 }
 
 .card-header {
@@ -14,16 +29,7 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  /* white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis; */
 }
-
-/* .term-title {
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-} */
 
 .term-title-small {
   font-size: 120%;
@@ -41,6 +47,7 @@
   margin-right: 5px;
   cursor: pointer;
   color: #003153;
+  background-color: transparent;
   transition: 0.5s all;
 }
 

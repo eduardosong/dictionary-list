@@ -3,7 +3,8 @@ import PropTypes from "prop-types";
 import {
   titleFontSize,
   defFontSize,
-  quickDefFontSize
+  quickDefFontSize,
+  cardSize
 } from "../services/settings";
 import "./Settings.css";
 
@@ -22,6 +23,10 @@ class Settings extends React.Component {
 
   changeQuickDefSize = e => {
     this.props.onChangeQuickDefSize(e.target.value);
+  };
+
+  changeCardSize = e => {
+    this.props.onChangeCardSize(e.target.value);
   };
 
   toggleCompactDef = () => {
@@ -248,6 +253,68 @@ class Settings extends React.Component {
                   </div>
                 </div>
               </div>
+
+              <div className="small-settings-box">
+                <span className="small-settings-title">Card Size</span>
+                <div className="settings-input-box">
+                  <div className="sub-setting-item small-settings-box">
+                    <ul>
+                      <li>
+                        <input
+                          type="radio"
+                          name="cardSizeSmall"
+                          id="cardSizeSmall"
+                          value={cardSize[0]}
+                          onChange={this.changeCardSize}
+                          checked={
+                            this.props.cardSize === cardSize[0] ? true : false
+                          }
+                        />
+                        <label htmlFor="cardSizeSmall">Small</label>
+                      </li>
+                      <li>
+                        <input
+                          type="radio"
+                          name="cardSizeMed"
+                          id="cardSizeMed"
+                          value={cardSize[1]}
+                          onChange={this.changeCardSize}
+                          checked={
+                            this.props.cardSize === cardSize[1] ? true : false
+                          }
+                        />
+                        <label htmlFor="cardSizeMed">Medium</label>
+                      </li>
+                      <li>
+                        <input
+                          type="radio"
+                          name="cardSizeLg"
+                          id="cardSizeLg"
+                          value={cardSize[2]}
+                          onChange={this.changeCardSize}
+                          checked={
+                            this.props.cardSize === cardSize[2] ? true : false
+                          }
+                        />
+                        <label htmlFor="cardSizeLg">Large</label>
+                      </li>
+                      <li>
+                        <input
+                          type="radio"
+                          name="cardSizeUn"
+                          id="cardSizeUn"
+                          value={cardSize[3]}
+                          onChange={this.changeCardSize}
+                          checked={
+                            this.props.cardSize === cardSize[3] ? true : false
+                          }
+                        />
+                        <label htmlFor="cardSizeUn">UNLIMITED LENGTH!</label>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
             </form>
           </div>
         </div>
@@ -261,11 +328,13 @@ Settings.propTypes = {
   titleFontSize: PropTypes.string.isRequired,
   defFontSize: PropTypes.string.isRequired,
   quickDefFontSize: PropTypes.string.isRequired,
+  cardSize: PropTypes.string.isRequired,
   hideCompactDef: PropTypes.bool.isRequired,
   onChangeCompactDef: PropTypes.func.isRequired,
   onChangeTitleFontSize: PropTypes.func.isRequired,
   onChangeDefSize: PropTypes.func.isRequired,
-  onChangeQuickDefSize: PropTypes.func.isRequired
+  onChangeQuickDefSize: PropTypes.func.isRequired,
+  onChangeCardSize: PropTypes.func.isRequired
 };
 
 export default Settings;
