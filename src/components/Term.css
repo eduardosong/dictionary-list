@@ -6,39 +6,46 @@
   margin-bottom: 30px;
   padding: 10px 10px;
   /* border: 1px solid rgb(217, 241, 255); */
-  box-shadow: 2.5px 2.5px rgb(36, 67, 80);
 }
 
 .card-header {
+  margin: 0 10px;
+  flex-grow: 4;
   display: flex;
+  flex-direction: row;
   align-items: center;
-  justify-content: space-between;
+  /* white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis; */
 }
 
-.title {
-  flex-grow: 2;
-  display: flex;
-  align-items: center;
-}
+/* .term-title {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+} */
 
 .term-title-small {
-  font-size: 60%;
+  font-size: 120%;
 }
 .term-title-medium {
-  font-size: 80%;
+  font-size: 140%;
 }
 .term-title-large {
-  font-size: 120%;
+  font-size: 160%;
 }
 
 .card-drop-btn {
   border: none;
   padding: 0 5px;
-  margin-left: 15px;
-  font-size: 215%;
+  margin-right: 5px;
   cursor: pointer;
   color: #003153;
   transition: 0.5s all;
+}
+
+.card-drop-btn i {
+  font-size: 200%;
 }
 
 .card-arrow-down {
@@ -51,24 +58,24 @@
   transition: transform 0.2s linear;
 }
 
-.card .card-header h1 {
-  display: inline-block;
-  font-size: 250%;
-}
-
 .quick-def {
-  display: inline-block;
-  padding: 0 25px;
+  font-style: italic;
+  font-weight: 300;
+  margin-left: 10px;
+
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .term-quick-def-small {
-  font-size: 60%;
+  font-size: 120%;
 }
 .term-quick-def-medium {
-  font-size: 80%;
+  font-size: 140%;
 }
 .term-quick-def-large {
-  font-size: 100%;
+  font-size: 160%;
 }
 
 .card .quick-def h3 {
@@ -79,31 +86,40 @@
 
 .del-term-btn {
   align-self: flex-start;
+  margin-left: auto;
   background-color: rgb(255, 255, 255);
   border: none;
   cursor: pointer;
   font-size: 180%;
-  padding: 15px 10px;
+  padding: 0px 10px;
 }
 
-.card-container .term-container {
+.card-container {
+  padding: 10px 20px;
+}
+
+.term-container {
   padding-bottom: 20px;
 }
 
 .term-def-small {
-  font-size: 80%;
+  font-size: 70%;
 }
 
 .term-def-medium {
-  font-size: 100%;
+  font-size: 90%;
 }
 
 .term-def-large {
-  font-size: 120%;
+  font-size: 100%;
 }
 
-.card h2 {
-  padding-left: 20px;
+.interior-term-title {
+  font-weight: 300;
+  font-size: 150%;
+}
+
+.term-container h2 {
   font-size: 150%;
   font-weight: 200;
   font-style: italic;
@@ -111,7 +127,7 @@
 
 .card p {
   font-size: 125%;
-  padding-left: 40px;
+  padding-left: 20px;
   padding-top: 5px;
   line-height: 125%;
 }

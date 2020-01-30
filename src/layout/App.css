@@ -5,6 +5,7 @@
   margin: 0;
   padding: 0;
   font-family: "Gelasio", serif;
+  font-size: 15px;
 }
 
 .wrapper {
@@ -42,15 +43,12 @@
   color: #ffffff;
   font-size: 300%;
   font-weight: 300;
-  /* text-shadow: 2px 2px #6d6d6d; */
-  text-shadow: 2px 2px rgb(36, 67, 80);
 }
 .site-title h4 {
   margin-top: 10px;
   color: #e0e0e0;
   font-size: 120%;
   font-style: italic;
-  /* text-shadow: 2px 2px #6d6d6d; */
 }
 
 /* Section: Search Box */
@@ -59,7 +57,10 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* max-width: 760px; */
+  margin: 0 auto;
+  /* justify-content: center; */
+  max-width: 900px;
+  margin-bottom: 40px;
 }
 
 .search-form {
@@ -76,12 +77,11 @@
   display: flex;
   width: 100%;
   justify-content: center;
-  box-shadow: 2.5px 2.5px rgb(36, 67, 80);
 }
 
 .term-input {
   background-color: white;
-  padding: 20px 30px;
+  padding: 10px 20px;
   flex-grow: 2;
   font-size: 200%;
   width: 100%;
@@ -109,7 +109,6 @@
   padding: 10px;
   text-align: center;
   font-size: 140%;
-  box-shadow: 2.5px 2.5px rgb(36, 67, 80);
 }
 
 .alt-term {
@@ -131,6 +130,20 @@
   max-width: 750px;
   width: 80%;
   margin: 20px 0;
+}
+
+.menu-btn {
+  align-self: flex-start;
+  border: none;
+  cursor: pointer;
+  /* background-color: #98dfaf; */
+  background-color: #b5e2fa;
+  /* color: rgb(97, 97, 97); */
+  /* color: rgb(68, 68, 68); */
+  color: #5a564d;
+  padding: 10px 10px;
+  font-size: 135%;
+  border-radius: 5%;
 }
 
 /* Section: Term and Definition Display */

@@ -22,6 +22,7 @@ class App extends React.Component {
       altTerm: []
     },
     settings: {
+      dispSettings: false,
       hideCompactDef: false,
       font: {
         title: titleFontSize[1],
@@ -40,6 +41,15 @@ class App extends React.Component {
   componentDidMount = () => {
     this.getTermFromStorage();
     this.getSettingFromStorage();
+  };
+
+  showSettings = () => {
+    this.setState({
+      settings: {
+        ...this.state.settings,
+        dispSettings: !this.state.settings.dispSettings
+      }
+    });
   };
 
   getSettingFromStorage = () => {
@@ -383,24 +393,24 @@ class App extends React.Component {
                 </div>
               </form>
               <div className="search-btn-group">
-                <Settings
-                  titleFontSize={this.state.settings.font.title}
-                  defFontSize={this.state.settings.font.def}
-                  quickDefFontSize={this.state.settings.font.quickDef}
-                  hideCompactDef={this.state.settings.hideCompactDef}
-                  onChangeCompactDef={this.onChangeCompactDef}
-                  onChangeTitleFontSize={this.onChangeTitleFontSize}
-                  onChangeDefSize={this.onChangeDefSize}
-                  onChangeQuickDefSize={this.onChangeQuickDefSize}
-                />
-
-                <button
-                  className="show-settings-btn "
-                  onClick={this.delStoredTerm}
-                >
+                <button className="menu-btn" onClick={this.showSettings}>
+                  Settings
+                </button>
+                <button className="menu-btn" onClick={this.delStoredTerm}>
                   Clear Terms
                 </button>
               </div>
+              <Settings
+                dispSettings={this.state.settings.dispSettings}
+                titleFontSize={this.state.settings.font.title}
+                defFontSize={this.state.settings.font.def}
+                quickDefFontSize={this.state.settings.font.quickDef}
+                hideCompactDef={this.state.settings.hideCompactDef}
+                onChangeCompactDef={this.onChangeCompactDef}
+                onChangeTitleFontSize={this.onChangeTitleFontSize}
+                onChangeDefSize={this.onChangeDefSize}
+                onChangeQuickDefSize={this.onChangeQuickDefSize}
+              />
             </section>
             <section className="section-searched-list animated fadeIn">
               <div className="row">

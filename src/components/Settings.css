@@ -1,13 +1,8 @@
 /* Settings Styling */
-/* .settings-container {
-  margin-top: 20px;
-  width: 80%;
-  max-width: 750px;
-  margin-bottom: 50px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-} */
+.settings-container {
+  margin-top: -21px;
+  width: 90%;
+}
 
 .show-settings-btn {
   align-self: flex-start;
@@ -21,7 +16,6 @@
   padding: 10px 10px;
   font-size: 150%;
   border-radius: 5%;
-  box-shadow: 2px 2px rgb(36, 67, 80);
 }
 
 .settings-content {
@@ -33,7 +27,6 @@
   font-size: 1.5rem;
   width: 100%;
   border-radius: 0.5%;
-  box-shadow: 2px 2px rgb(36, 67, 80);
 }
 
 .large-settings-box {
@@ -58,7 +51,6 @@
   margin-top: 5px;
   /* background-color: #98dfaf; */
   background-color: rgb(233, 227, 212);
-  box-shadow: 2px 2px rgb(36, 67, 80);
 }
 
 .small-settings-box {

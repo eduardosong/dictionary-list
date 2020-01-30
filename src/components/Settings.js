@@ -28,21 +28,13 @@ class Settings extends React.Component {
     this.props.onChangeCompactDef();
   };
 
-  toggleDisplay = () => {
-    const dispSettings = !this.state.dispSettings;
-
-    this.setState({ dispSettings });
-  };
   render() {
     return (
       <React.Fragment>
         <div className="settings-container">
-          <button className="show-settings-btn" onClick={this.toggleDisplay}>
-            Settings
-          </button>
           <div
             className={`settings-content animated fadeIn ${
-              this.state.dispSettings ? "visible-element" : "hidden-element"
+              this.props.dispSettings ? "visible-element" : "hidden-element"
             }`}
           >
             {/* <div className="card-object">
@@ -265,6 +257,7 @@ class Settings extends React.Component {
 }
 
 Settings.propTypes = {
+  dispSettings: PropTypes.bool.isRequired,
   titleFontSize: PropTypes.string.isRequired,
   defFontSize: PropTypes.string.isRequired,
   quickDefFontSize: PropTypes.string.isRequired,
