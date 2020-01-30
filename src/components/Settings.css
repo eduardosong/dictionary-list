@@ -4,18 +4,6 @@
   width: 90%;
 }
 
-.show-settings-btn {
-  align-self: flex-start;
-  border: none;
-  cursor: pointer;
-  background-color: #b5e2fa;
-
-  color: #5a564d;
-  padding: 10px 10px;
-  font-size: 150%;
-  border-radius: 5%;
-}
-
 .settings-content {
   margin-top: 1px;
   background-color: #bbd5ed;

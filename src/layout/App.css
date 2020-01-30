@@ -138,10 +138,8 @@
   align-self: flex-start;
   border: none;
   cursor: pointer;
-  /* background-color: #98dfaf; */
   background-color: #b5e2fa;
-  /* color: rgb(97, 97, 97); */
-  /* color: rgb(68, 68, 68); */
+  font-family: Montserrat, sans-serif;
   color: #5a564d;
   padding: 10px 10px;
   font-size: 135%;
