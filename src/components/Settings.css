@@ -1,7 +1,7 @@
 /* Settings Styling */
 .settings-container {
-  margin-top: -21px;
-  width: 90%;
+  /* margin-top: -21px; */
+  width: 100%;
 }
 
 .settings-content {
@@ -11,7 +11,7 @@
   padding: 10px 10px;
   font-size: 1.5rem;
   width: 100%;
-  border-radius: 0.5%;
+  border-radius: 10px;
 }
 
 .large-settings-box {

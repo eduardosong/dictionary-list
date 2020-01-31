@@ -1,6 +1,7 @@
 import React from "react";
 import Term from "../components/Term";
 import Settings from "../components/Settings";
+import PrintTerms from "../components/PrintTerms";
 import Footer from "../components/Footer";
 import merriam, { baseParams } from "../services/merriam";
 import {
@@ -10,6 +11,7 @@ import {
   cardSize
 } from "../services/settings";
 import "./App.css";
+import "./Responsive.css";
 
 class App extends React.Component {
   state = {
@@ -22,8 +24,11 @@ class App extends React.Component {
       errMsg: null,
       altTerm: []
     },
-    settings: {
+    btnDisp: {
       dispSettings: false,
+      dispPrint: false
+    },
+    settings: {
       hideCompactDef: false,
       font: {
         title: titleFontSize[1],
@@ -47,13 +52,30 @@ class App extends React.Component {
     this.getSettingFromStorage();
   };
 
-  showSettings = () => {
-    this.setState({
-      settings: {
-        ...this.state.settings,
-        dispSettings: !this.state.settings.dispSettings
+  dispBtnContent = e => {
+    const btnVal = e.target.value;
+    const newDispVal = !this.state.btnDisp[btnVal];
+    const btnDisp = { ...this.state.btnDisp };
+
+    if (newDispVal) {
+      this.setFalseExceptVal(btnDisp, btnVal);
+    } else {
+      btnDisp[btnVal] = newDispVal;
+    }
+
+    this.setState({ btnDisp });
+  };
+
+  setFalseExceptVal = (obj, selected) => {
+    for (var prop in obj) {
+      if (Object.prototype.hasOwnProperty.call(obj, prop)) {
+        if (prop !== selected) {
+          obj[prop] = false;
+        } else {
+          obj[prop] = true;
+        }
       }
-    });
+    }
   };
 
   getSettingFromStorage = () => {
@@ -100,10 +122,6 @@ class App extends React.Component {
   };
 
   mapTermArr = () => {
-    // let oldStoredArr = JSON.parse(localStorage.getItem("htmlTermArr"));
-    // if (!oldStoredArr) {
-    //   oldStoredArr = [];
-    // }
     const htmlTermArr = this.state.termArr.map((word, index) => {
       return (
         <Term
@@ -418,26 +436,44 @@ class App extends React.Component {
                 </div>
               </form>
               <div className="search-btn-group">
-                <button className="menu-btn" onClick={this.showSettings}>
+                <button
+                  value="dispSettings"
+                  className={`menu-btn ${
+                    this.state.btnDisp.dispSettings ? "btn-highlight" : null
+                  }`}
+                  onClick={this.dispBtnContent}
+                >
                   Settings
+                </button>
+                <button
+                  value="dispPrint"
+                  className={`menu-btn ${
+                    this.state.btnDisp.dispPrint ? "btn-highlight" : null
+                  }`}
+                  onClick={this.dispBtnContent}
+                >
+                  Print Terms
                 </button>
                 <button className="menu-btn" onClick={this.delStoredTerm}>
                   Clear Terms
                 </button>
               </div>
-              <Settings
-                dispSettings={this.state.settings.dispSettings}
-                titleFontSize={this.state.settings.font.title}
-                defFontSize={this.state.settings.font.def}
-                cardSize={this.state.settings.card.size}
-                quickDefFontSize={this.state.settings.font.quickDef}
-                hideCompactDef={this.state.settings.hideCompactDef}
-                onChangeCompactDef={this.onChangeCompactDef}
-                onChangeTitleFontSize={this.onChangeTitleFontSize}
-                onChangeDefSize={this.onChangeDefSize}
-                onChangeQuickDefSize={this.onChangeQuickDefSize}
-                onChangeCardSize={this.onChangeCardSize}
-              />
+              <div className="btn-content-container">
+                <Settings
+                  dispSettings={this.state.btnDisp.dispSettings}
+                  titleFontSize={this.state.settings.font.title}
+                  defFontSize={this.state.settings.font.def}
+                  cardSize={this.state.settings.card.size}
+                  quickDefFontSize={this.state.settings.font.quickDef}
+                  hideCompactDef={this.state.settings.hideCompactDef}
+                  onChangeCompactDef={this.onChangeCompactDef}
+                  onChangeTitleFontSize={this.onChangeTitleFontSize}
+                  onChangeDefSize={this.onChangeDefSize}
+                  onChangeQuickDefSize={this.onChangeQuickDefSize}
+                  onChangeCardSize={this.onChangeCardSize}
+                />
+                <PrintTerms dispPrint={this.state.btnDisp.dispPrint} />
+              </div>
             </section>
             <section className="section-searched-list animated fadeIn">
               <div className="row">
