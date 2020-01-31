@@ -15,6 +15,7 @@ class PrintTerms extends React.Component {
             this.props.dispPrint ? "visible-element" : "hidden-element"
           }`}
         >
+          NON FUNCTIONAL!
           <ReactToPrint
             trigger={() => <a href="#">Print this out!</a>}
             content={() => this.componentRef}
