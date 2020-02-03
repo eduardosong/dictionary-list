@@ -161,7 +161,12 @@ class App extends React.Component {
 
     await this.getTerm(term)
       .then(r => this.checkTermResponse(r.data))
-      .catch(error => console.log(error));
+      .catch(error => {
+        if (error.isAxiosError) {
+          console.log("there is an error");
+        }
+        this.setState({ isDisabled: false });
+      });
   };
 
   changeLocalSettings = (settingName, settingValue) => {

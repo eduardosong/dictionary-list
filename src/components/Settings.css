@@ -1,6 +1,5 @@
 /* Settings Styling */
 .settings-container {
-  /* margin-top: -21px; */
   width: 100%;
 }
 
@@ -14,47 +13,9 @@
   border-radius: 10px;
 }
 
-.large-settings-box {
-  margin-bottom: 20px;
-}
-
-.large-settings-title {
-  font-size: 1.75rem;
-}
-
-.small-settings-title {
-  font-size: 1.5rem;
-}
-
-.sub-settings-container {
-  display: flex;
-  flex-wrap: wrap;
-}
-
-.sub-setting-item {
-  margin-left: 50px;
-  margin-top: 5px;
-  background-color: rgb(233, 227, 212);
-}
-
-.small-settings-box {
-  padding: 10px 10px;
-  border-radius: 5%;
-}
-
-.small-settings-box ul {
-  list-style: none;
-  font-size: 1.3rem;
-}
-
-.small-settings-box ul li {
-  margin-top: 5px;
-}
-
-.settings-input-box {
-  display: flex;
-  align-items: center;
-  font-size: 1.3rem;
+.settings-content h1 {
+  font-size: 150%;
+  text-align: center;
 }
 
 .settings-checkbox {
@@ -65,38 +26,66 @@
 .card-object {
   background-color: rgb(233, 227, 212);
   border-radius: 3px;
-  margin: 5px 5px;
-  padding: 7px 5px;
+  margin: 20px;
+  padding: 10px 10px;
 }
 
 .card-object-title {
-  font-size: 120%;
+  font-weight: 600;
+  font-size: 160%;
 }
 
 .prop-group {
   display: flex;
-  align-items: center;
+  flex-wrap: wrap;
+  align-items: stretch;
+  justify-content: space-around;
+  margin: 0 12px;
 }
 
 .card-property {
   background-color: rgb(223, 195, 126);
   border-radius: 3px;
-  padding: 7px 5px;
+  padding: 10px 10px;
   margin: 10px;
+  flex: 1;
+  max-width: 300px;
 }
 
 .card-property-title {
-  font-size: 100%;
+  font-size: 150%;
+  font-weight: 600;
 }
 
 .sub-prop-group {
   display: flex;
-  align-items: center;
+  align-items: stretch;
+  flex-wrap: wrap;
 }
 
 .card-sub-property {
   background-color: rgb(150, 182, 218);
   border-radius: 3px;
-  padding: 7px 5px;
+  padding: 10px 30px;
   margin: 15px;
+  min-width: 150px;
+  width: 100%;
+}
+
+.card-sub-property-title {
+  font-weight: 600;
+  font-size: 140%;
+  white-space: nowrap;
+}
+
+.card-input-ul {
+  list-style: none;
+}
+
+.card-input-ul li {
+  margin: 5px 0;
+}
+
+.card-input-label {
+  padding-left: 5px;
 }
