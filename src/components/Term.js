@@ -121,45 +121,47 @@ class Term extends React.Component {
     return (
       <React.Fragment>
         <div className={`card animated fadeIn ${this.state.cardSizeClass}`}>
-          <div className="card-header">
-            <button
-              className={`card-drop-btn card-arrow-down ${
-                this.state.showCard ? "open-card" : null
-              }`}
-              onClick={this.toggleShow}
-            >
-              <i className="ion-android-arrow-dropright"></i>
-            </button>
-            <div
-              style={{
-                display: "flex",
-                alignItems: "center",
-                whiteSpace: "nowrap",
-                overflow: "hidden"
-              }}
-            >
-              <h1 className={`term-title ${this.state.titleFontSizeClass}`}>
-                {this.props.term}{" "}
-              </h1>
+          {this.props.print ? null : (
+            <div className="card-header">
+              <button
+                className={`card-drop-btn card-arrow-down ${
+                  this.state.showCard ? "open-card" : null
+                }`}
+                onClick={this.toggleShow}
+              >
+                <i className="ion-android-arrow-dropright"></i>
+              </button>
+              <div
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  whiteSpace: "nowrap",
+                  overflow: "hidden"
+                }}
+              >
+                <h1 className={`term-title ${this.state.titleFontSizeClass}`}>
+                  {this.props.term}{" "}
+                </h1>
 
-              {this.props.hideCompactDef ? null : (
-                <span
-                  className={`quick-def ${this.state.quickDefFontSizeClass}`}
-                >
-                  {this.props.defList[0].fl}:{" "}
-                  {this.props.defList[0].shortdef[0]}
-                </span>
-              )}
+                {this.props.hideCompactDef ? null : (
+                  <span
+                    className={`quick-def ${this.state.quickDefFontSizeClass}`}
+                  >
+                    {this.props.defList[0].fl}:{" "}
+                    {this.props.defList[0].shortdef[0]}
+                  </span>
+                )}
+              </div>
+
+              <button className="del-term-btn" onClick={this.removeTerm}>
+                <i className="ion-android-close"></i>
+              </button>
             </div>
-
-            <button className="del-term-btn" onClick={this.removeTerm}>
-              <i className="ion-android-close"></i>
-            </button>
-          </div>
+          )}
 
           <div
             className={
-              this.state.showCard
+              this.state.showCard || this.props.print
                 ? `card-container animated fadeIn visible-element`
                 : "card-container animated fadeIn hidden-element"
             }
@@ -204,7 +206,8 @@ Term.propTypes = {
   hideCompactDef: PropTypes.bool.isRequired,
   titleFontSize: PropTypes.string.isRequired,
   defFontSize: PropTypes.string.isRequired,
-  quickDefFontSize: PropTypes.string.isRequired
+  quickDefFontSize: PropTypes.string.isRequired,
+  print: PropTypes.bool.isRequired
 };
 
 export default Term;

@@ -98,6 +98,14 @@
   outline: none;
 }
 
+.btn {
+  border: none;
+  padding: 10px 10px;
+  cursor: pointer;
+  border-radius: 10px;
+  font-family: Montserrat, sans-serif;
+}
+
 .search-btn {
   border: none;
   /* background-color: rgb(253, 171, 65); */

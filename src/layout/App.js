@@ -43,7 +43,7 @@ class App extends React.Component {
 
   componentDidUpdate = (prevProps, prevState) => {
     if (prevState.termArr !== this.state.termArr) {
-      this.mapTermArr();
+      this.mapTermArr(false);
     }
   };
 
@@ -121,7 +121,7 @@ class App extends React.Component {
     }
   };
 
-  mapTermArr = () => {
+  mapTermArr = print => {
     const htmlTermArr = this.state.termArr.map((word, index) => {
       return (
         <Term
@@ -136,11 +136,16 @@ class App extends React.Component {
           defFontSize={this.state.settings.font.def}
           quickDefFontSize={this.state.settings.font.quickDef}
           cardSize={this.state.settings.card.size}
+          print={print ? true : false}
         />
       );
     });
 
-    this.setState({ htmlTermArr });
+    if (print) {
+      return htmlTermArr;
+    } else {
+      this.setState({ htmlTermArr });
+    }
   };
 
   onClickAltTerm = e => {
@@ -190,7 +195,7 @@ class App extends React.Component {
       {
         settings: { ...this.state.settings, hideCompactDef: newCurrDisp }
       },
-      this.mapTermArr
+      () => this.mapTermArr(false)
     );
   };
 
@@ -204,7 +209,7 @@ class App extends React.Component {
           font: { ...this.state.settings.font, title: fontSize }
         }
       },
-      this.mapTermArr
+      () => this.mapTermArr(false)
     );
   };
 
@@ -218,7 +223,7 @@ class App extends React.Component {
           card: { ...this.state.settings.card, size: cardSize }
         }
       },
-      this.mapTermArr
+      () => this.mapTermArr(false)
     );
   };
 
@@ -232,7 +237,7 @@ class App extends React.Component {
           font: { ...this.state.settings.font, def: fontSize }
         }
       },
-      this.mapTermArr
+      () => this.mapTermArr(false)
     );
   };
 
@@ -246,7 +251,7 @@ class App extends React.Component {
           font: { ...this.state.settings.font, quickDef: fontSize }
         }
       },
-      this.mapTermArr
+      () => this.mapTermArr(false)
     );
   };
 
@@ -477,7 +482,10 @@ class App extends React.Component {
                   onChangeQuickDefSize={this.onChangeQuickDefSize}
                   onChangeCardSize={this.onChangeCardSize}
                 />
-                <PrintTerms dispPrint={this.state.btnDisp.dispPrint} />
+                <PrintTerms
+                  dispPrint={this.state.btnDisp.dispPrint}
+                  mapTermArr={this.mapTermArr}
+                />
               </div>
             </section>
             <section className="section-searched-list animated fadeIn">

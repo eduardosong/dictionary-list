@@ -43,8 +43,8 @@ class Settings extends React.Component {
             }`}
           >
             <h1>Settings</h1>
-            <div className="card-object">
-              <form>
+            <form>
+              <div className="card-object">
                 <span className="card-object-title">Card</span>
                 <div className="prop-group">
                   <div className="card-property">
@@ -251,7 +251,7 @@ class Settings extends React.Component {
                     <div className="sub-prop-group">
                       <div className="card-sub-property">
                         <span className="card-sub-property-title">
-                          Card Size
+                          Card Size (Desktop)
                         </span>
                         <ul className="card-input-ul">
                           <li>
@@ -321,8 +321,8 @@ class Settings extends React.Component {
                     </div>
                   </div>
                 </div>
-              </form>
-            </div>
+              </div>
+            </form>
           </div>
         </div>
       </React.Fragment>

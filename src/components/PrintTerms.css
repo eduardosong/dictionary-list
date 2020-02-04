@@ -3,5 +3,39 @@
 .print-container {
   background-color: #bbd5ed;
   width: 100%;
+  padding: 10px 10px;
   border-radius: 10px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.print-title {
+  font-size: 180%;
+}
+
+.print-desc {
+  font-size: 145%;
+}
+
+.print-content {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+}
+.print-btn {
+  background-color: #70c5f3;
+  font-size: 20px;
+  transition: background-color 0.5s;
+}
+
+.print-btn:hover {
+  background-color: #8db3c7;
+}
+
+.print-btn:active {
+  background-color: #ffc341;
+}
+.print-btn:focus {
+  background-color: #ffc341;
 }
