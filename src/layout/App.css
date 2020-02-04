@@ -114,7 +114,6 @@ html {
 
 .search-btn {
   border: none;
-  /* background-color: rgb(253, 171, 65); */
   background-color: #f5cb5c;
   color: rgb(44, 44, 44);
   font-family: Montserrat, sans-serif;
@@ -151,7 +150,6 @@ html {
 
 .search-btn-group {
   display: flex;
-  /* flex-direction: column; */
   justify-content: space-evenly;
   align-items: center;
   max-width: 750px;
@@ -189,7 +187,6 @@ html {
 }
 
 .btn-content-container {
-  margin-top: -21px;
   width: 100%;
 }
 
