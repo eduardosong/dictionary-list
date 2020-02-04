@@ -2,6 +2,7 @@ import React from "react";
 import Term from "../components/Term";
 import Settings from "../components/Settings";
 import PrintTerms from "../components/PrintTerms";
+import Modal from "../components/Modal";
 import Footer from "../components/Footer";
 import merriam, { baseParams } from "../services/merriam";
 import {
@@ -26,7 +27,8 @@ class App extends React.Component {
     },
     btnDisp: {
       dispSettings: false,
-      dispPrint: false
+      dispPrint: false,
+      dispClear: false
     },
     settings: {
       hideCompactDef: false,
@@ -400,9 +402,10 @@ class App extends React.Component {
 
   delStoredTerm = () => {
     const termArr = null;
+    const btnDisp = { ...this.state.btnDisp, dispClear: false };
 
     localStorage.setItem("termArr", termArr);
-    this.setState({ termArr: [], htmlTermArr: [] });
+    this.setState({ termArr: [], htmlTermArr: [], btnDisp });
   };
 
   render() {
@@ -410,6 +413,34 @@ class App extends React.Component {
       <React.Fragment>
         <div className="wrapper">
           <div className="page-content">
+            <Modal
+              title="Clear Terms?"
+              dispClear={this.state.btnDisp.dispClear}
+              dispBtnContent={this.dispBtnContent}
+            >
+              <div className="del-Term-container">
+                <span style={{ textAlign: "center", display: "inline-block" }}>
+                  Are you sure you want to delete your searched terms? They
+                  cannot be recovered.
+                </span>
+
+                <div className="term-del-btn-group">
+                  <button
+                    className="btn exit-del"
+                    value="dispClear"
+                    onClick={this.dispBtnContent}
+                  >
+                    Cancel
+                  </button>
+                  <button
+                    className="btn confirm-del"
+                    onClick={this.delStoredTerm}
+                  >
+                    Delete
+                  </button>
+                </div>
+              </div>
+            </Modal>
             <section className="title-section animated fadeIn">
               <div className="site-title row">
                 <h1>Mitsis</h1>
@@ -464,7 +495,11 @@ class App extends React.Component {
                 >
                   Print Terms
                 </button>
-                <button className="menu-btn" onClick={this.delStoredTerm}>
+                <button
+                  value="dispClear"
+                  className="menu-btn"
+                  onClick={this.dispBtnContent}
+                >
                   Clear Terms
                 </button>
               </div>
