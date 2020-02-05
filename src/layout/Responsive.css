@@ -2,7 +2,6 @@
 
 @media only screen and (max-width: 700px) {
   /* Menu button group */
-
   .search-btn-group {
     display: flex;
     flex-direction: column;
@@ -15,5 +14,48 @@
   .menu-btn {
     margin: 5px 0;
     width: 100%;
+  }
+  .search-box-container {
+    width: 100%;
+    padding: 0 20px;
+  }
+
+  .search-form {
+    width: 100%;
+  }
+
+  /* Search box */
+  .term-input {
+    font-size: 120%;
+  }
+
+  .search-btn {
+    display: none;
+  }
+
+  .search-btn-mobile {
+    display: block;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  /* Title */
+  .title-section {
+    padding-top: 50px;
+  }
+
+  .title-section h4 {
+    display: none;
+  }
+
+  /* Menu button group */
+  .search-box-container {
+    width: 100%;
+    padding: 0 7px;
+    margin: 0;
+  }
+
+  .search-form {
+    margin-top: 20px;
   }
 }

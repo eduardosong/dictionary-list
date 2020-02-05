@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import ReactToPrint from "react-to-print";
-import Term from "../components/Term";
+// import Term from "../components/Term";
 import "./PrintTerms.css";
 
 class PrintTerms extends React.Component {

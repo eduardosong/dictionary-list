@@ -442,13 +442,11 @@ class App extends React.Component {
               </div>
             </Modal>
             <section className="title-section animated fadeIn">
-              <div className="site-title row">
-                <h1>Mitsis</h1>
-                <h4>
-                  A companion for when you go down the rabbit hole of searching
-                  the definitions of words.
-                </h4>
-              </div>
+              <h1>Mitsis</h1>
+              <h4>
+                A companion for when you go down the rabbit hole of searching
+                the definitions of words.
+              </h4>
             </section>
             <section className="search-box-container animated fadeInLeft">
               <form className="search-form" onSubmit={this.onTermSubmit}>
@@ -464,6 +462,12 @@ class App extends React.Component {
                   />
                   <button type="submit" className="search-btn">
                     Search
+                  </button>
+                  <button
+                    type="submit"
+                    className="search-btn search-btn-mobile"
+                  >
+                    <i className="ion-ios-search"></i>
                   </button>
                 </div>
                 <div
