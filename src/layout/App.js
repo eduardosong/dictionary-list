@@ -413,6 +413,9 @@ class App extends React.Component {
       <React.Fragment>
         <div className="wrapper">
           <div className="page-content">
+            {/* <section className="mob-menu-section">
+              <nav className="mob-menu-container">Test</nav>
+            </section> */}
             <Modal
               title="Clear Terms?"
               dispClear={this.state.btnDisp.dispClear}

@@ -34,6 +34,15 @@ html {
   display: none;
 }
 
+/* Section: Mobile Menu */
+.mob-menu-container {
+  /* display: none;
+  width: 100%;
+  background-color: white;
+  position: fixed;
+  z-index: 9998; */
+}
+
 /* Section: Title */
 
 .title-section {
@@ -185,10 +194,6 @@ html {
 .menu-btn:hover {
   background-color: #9cc3d6;
 }
-
-/* .menu-btn:focus {
-  background-color: #f5cb5c;
-} */
 
 .menu-btn:active {
   background-color: #f5cb5c;
