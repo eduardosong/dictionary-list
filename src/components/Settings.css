@@ -5,7 +5,8 @@
 
 .settings-content {
   margin-top: 1px;
-  background-color: #bbd5ed;
+  /* background-color: #bbd5ed; */
+  background-color: rgb(233, 227, 212);
   color: rgb(97, 97, 97);
   padding: 10px 10px;
   font-size: 1.5rem;
@@ -16,6 +17,12 @@
 .settings-content h1 {
   font-size: 150%;
   text-align: center;
+  padding-top: 5px;
+  width: 400px;
+  margin: 0 auto;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgb(184, 184, 184);
+  margin-bottom: 20px;
 }
 
 .settings-checkbox {
@@ -28,6 +35,7 @@
   border-radius: 3px;
   margin: 20px;
   padding: 10px 10px;
+  border-radius: 5px;
 }
 
 .card-object-title {
@@ -39,12 +47,12 @@
   display: flex;
   flex-wrap: wrap;
   align-items: stretch;
-  justify-content: space-around;
+  justify-content: flex-start;
   margin: 0 12px;
 }
 
 .card-property {
-  background-color: rgb(223, 195, 126);
+  border: 1px solid rgb(187, 187, 187);
   border-radius: 3px;
   padding: 10px 10px;
   margin: 10px;
@@ -55,6 +63,7 @@
 .card-property-title {
   font-size: 150%;
   font-weight: 600;
+  font-style: italic;
 }
 
 .sub-prop-group {
@@ -64,9 +73,7 @@
 }
 
 .card-sub-property {
-  background-color: rgb(150, 182, 218);
   border-radius: 3px;
-  padding: 10px 30px;
   margin: 15px;
   min-width: 150px;
   width: 100%;

@@ -18,11 +18,12 @@
 }
 
 .modal-card {
-  position: absolute;
+  position: fixed;
   background-color: white;
   max-width: 300px;
+  width: 100%;
   padding: 10px 10px;
-  top: 300px;
+  top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   border-radius: 5px;
